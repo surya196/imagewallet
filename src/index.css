@@ -5,11 +5,13 @@ html {
 
 body {
   margin: 0;
-  font: 300 11px/1.4 'Helvetica Neue', sans-serif;
+  font-family:'Poppins';
+  
+
   /* color: #444; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: #60d3f7; */
+  background:#EDF0E2;
   overflow: scroll;
   display: block;
 }

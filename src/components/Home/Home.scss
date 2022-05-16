@@ -1,0 +1,165 @@
+@import '../scss/globalStyle.scss';
+.error-img{
+    background: transparent;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    border-radius: 5px;
+    margin: 0px auto;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+
+}
+.image-card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+
+
+    .logo {
+        text-align: left;
+
+        @media only screen and (max-width:$small-screen) {
+            img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media only screen and (min-width:$small-screen) {
+            img {
+                width: 42px;
+                height: 42px;
+            }
+        }
+    }
+
+
+    .display-text {
+        color: $secondary-color;
+        text-align: center;
+
+        @media only screen and (min-width:$large-screen) {
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:$large-screen) {
+            font-size: 37px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:$medium-screen) {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:$small-screen) {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width:440px) {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: auto 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        form {
+
+            width: fit-content;
+            position: relative;
+
+            input {
+                border-radius: 10px;
+                height: 35px;
+                outline: none;
+                border: 1px solid $secondary-color;
+                width: 400px;
+                color: $primary-color;
+
+                @media only screen and (max-width:440px) {
+                    width: 250px;
+                }
+
+            }
+
+            button {
+                position: absolute;
+                right: 0px;
+                outline: none;
+                border: none;
+                height: 35px;
+                width: 35px;
+                border-radius: 0px 10px 10px 0px;
+                cursor: pointer;
+                background-color: $primary-color;
+            }
+        }
+
+        .dropdown {
+
+            width: 100%;
+            margin-top: 4px;
+
+            select {
+                font-family: 'poppins';
+                outline: none;
+                border: none;
+                height: 25px;
+                margin: 0px 2px;
+                border-radius: 5px;
+                background-color: $primary-color;
+                color: $secondary-color;
+
+                option {
+                    &:hover {
+                        background-color: $background-color;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+
+
+
+
+}
+.page-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    
+    button{
+        outline: none;
+        border: 1px solid $secondary-color;
+        background-color: $primary-color;
+        color: $background-color;
+        margin: 4px;
+        border-radius: 5px;
+        box-shadow:$box-shadow-2;
+        padding: 4px;
+        cursor: pointer;
+    }
+}

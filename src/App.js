@@ -1,8 +1,6 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-
 import './App.scss';
-
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import ImageDetail from './components/Image-detail/ImageDetail';
 
 

@@ -1,16 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './image-card.scss';
 
 
 const Imagecard = ({ Imgid, Imgurl }) => {
     return (
-        <div  >{Imgid}
+       
+            <div  className='image-card' >
             <img src={Imgurl} />
-            <Link to={`/detail/${Imgid}`} >
-            CONTACT ME
-          </Link>
+            <div className='link'>
+            <Link to={`/detail/${Imgid}`} target="_blank">
+            see Details
+          </Link> 
 
-        </div>
+            </div>
+
+            
+</div>
+       
+        
     )
 }
 
