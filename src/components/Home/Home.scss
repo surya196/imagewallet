@@ -1,5 +1,6 @@
 @import '../scss/globalStyle.scss';
-.error-img{
+
+.error-img {
     background: transparent;
     width: 50%;
     height: 50%;
@@ -11,6 +12,7 @@
     animation-delay: 1s;
 
 }
+
 .image-card-wrapper {
     display: flex;
     align-items: center;
@@ -144,21 +146,23 @@
 
 
 }
-.page-button{
+
+.page-button {
     position: absolute;
+    z-index: 10;
     bottom: 0;
     right: 0;
     display: flex;
     align-items: center;
-    
-    button{
+
+    button {
         outline: none;
         border: 1px solid $secondary-color;
         background-color: $primary-color;
         color: $background-color;
         margin: 4px;
         border-radius: 5px;
-        box-shadow:$box-shadow-2;
+        box-shadow: $box-shadow-2;
         padding: 4px;
         cursor: pointer;
     }

@@ -9,7 +9,7 @@ const Imagecard = ({ Imgid, Imgurl }) => {
             <div  className='image-card' >
             <img src={Imgurl} />
             <div className='link'>
-            <Link to={`/detail/${Imgid}`} target="_blank">
+            <Link to={`/detail/${Imgid}`}>
             see Details
           </Link> 
 

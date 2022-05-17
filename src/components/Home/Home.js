@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Imagecard from '../image-card/Image-card';
+import Loader from '../Loader/Loader';
 import axios from 'axios';
 import './Home.scss'
 import logo from '../assets/images/logo.png';
@@ -17,17 +18,21 @@ const Home = () => {
   const [CatType, setCatType] = useState("");
   const [error, seterror] = useState(false);
   const [page, setpage] = useState(1);
+  const [IsLoading, setIsLoading] = useState(true);
 
-  console.log(page)
+
 
 
   useEffect(() => {
 
-    getdata(`https://pixabay.com/api/?key=${apikey}&q=${fruit}&image_type=photo&order=${Dropdown}&image_type=${imgType}&category=${CatType}&page=${page}&per_page=30`)
-  }, [Dropdown, imgType, CatType,page])
+    getdata(`https://pixabay.com/api/?key=${apikey}&q=${fruit}&image_type=photo&order=${Dropdown}&image_type=${imgType}&category=${CatType}&page=${page}&per_page=32`)
+  }, [Dropdown, imgType, CatType, page])
 
   const getdata = (url) => {
-    axios.get(url).then(res => setuser(res.data.hits)).catch(error => {
+    axios.get(url).then(res => {
+      setuser(res.data.hits)
+      setIsLoading(false)
+    }).catch(error => {
       alert(error)
     })
   }
@@ -74,7 +79,7 @@ const Home = () => {
         <div className='search-bar'>
           <form >
             <input type='text' placeholder='search image' onKeyPress={handleKeypress} value={fruit} onChange={change} />
-            <button type='submit' onClick={handleSubmit} > <img src={search} /></button>
+            <button type='submit' onClick={handleSubmit} > <img src={search} alt='search' /></button>
 
           </form>
           <div className='dropdown' >
@@ -113,33 +118,38 @@ const Home = () => {
         </div>
 
       </div>
+      {IsLoading ? <Loader /> :
+        <>
 
-      {error ? <img className='error-img' src={errorimg} /> :
-        <div className='row'>
-          {
-            user.map((data, index) => (
-              <div key={index} className='col-sm-12 col-s-6 col-m-6 col-lg-4 col-xl-3 image-card-wrapper'>
-                <Imagecard key={index} Imgid={data.id} Imgurl={data.webformatURL} />
+          {error ? <img className='error-img' src={errorimg} alt='error' /> :
+            <div className='row'>
+              {
+                user.map((data, index) => (
+                  <div key={index} className='col-sm-12 col-s-6 col-m-6 col-lg-4 col-xl-3 image-card-wrapper'>
+                    <Imagecard key={index} Imgid={data.id} Imgurl={data.webformatURL} />
 
-              </div>
-
-
-            )
-
-            )
-
-          }
+                  </div>
 
 
-        </div>}
+                )
 
-      <div className='page-button'>
-        {page === 1 ? '' : <button onClick={() => setpage(page - 1)} >Prev</button>}
+                )
 
-        <button onClick={() => setpage(page + 1)} >Next</button>
-      </div>
+              }
+
+
+            </div>}
+
+          <div className='page-button'>
+            {page <= 1 ? '' : <button onClick={() => setpage(page - 1)} >Prev</button>}
+
+            <button onClick={() => setpage(page + 1)} >Next</button>
+          </div>
+        </>
+      }
 
     </div>
+
   )
 }
 
